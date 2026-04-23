@@ -10,7 +10,7 @@ import appCss from '../styles.css?url'
 import faviconPng from '../assets/logo-fennels.png?url'
 import { SiteHeader } from '#/components/site-header'
 import { SiteFooter } from '#/components/site-footer'
-import { ScrollToTop } from '#/components/ScrollToTop'
+import { ScrollToTop } from '#/components/scroll-to-top'
 
 function NotFoundComponent() {
   return (
