@@ -10,6 +10,11 @@ import {
   SheetTrigger,
 } from '#/components/ui/sheet'
 
+const links = [
+  { to: '/', label: 'Home' },
+  { to: '/recipes', label: 'Recipes' },
+  { to: '/about', label: 'About' },
+]
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
@@ -23,28 +28,20 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm md:flex">
-          <Link
-            to="/"
-            activeOptions={{ exact: true }}
-            activeProps={{ className: 'text-foreground' }}
-            className="text-muted-foreground hover:text-foreground transition-smooth"
-          >
-            Home
-          </Link>
-          <Link
-            to="/recipes"
-            activeProps={{ className: 'text-foreground' }}
-            className="text-muted-foreground hover:text-foreground transition-smooth"
-          >
-            Recipes
-          </Link>
-          <Link
-            to="/about"
-            activeProps={{ className: 'text-foreground' }}
-            className="text-muted-foreground hover:text-foreground transition-smooth"
-          >
-            About
-          </Link>
+          {links.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              activeOptions={{ exact: true }}
+              activeProps={{
+                className:
+                  "text-foreground after:scale-x-100 after:bg-primary after:opacity-100",
+              }}
+              className="relative rounded-md px-3 py-2 text-sm text-muted-foreground transition-smooth hover:text-foreground after:absolute after:left-3 after:right-3 after:bottom-1 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-primary after:opacity-60 after:transition-transform after:duration-200 after:content-[''] hover:after:scale-x-100"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="md:hidden">

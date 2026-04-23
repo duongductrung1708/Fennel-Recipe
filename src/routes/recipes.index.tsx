@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { SlidersHorizontal, X } from 'lucide-react'
+import kitchenBanner from '#/assets/recipe-banner.png'
 import { RecipeCard } from '#/components/recipe-card'
 import { RecipeGridSkeleton } from '#/components/recipe-card-skeleton'
 import {
@@ -257,14 +258,37 @@ function RecipesPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
       <header className="mb-10">
-        <p className="text-primary uppercase tracking-[0.25em] text-xs mb-3">
-          The collection
-        </p>
-        <h1 className="font-display text-5xl md:text-6xl">All recipes</h1>
-        <p className="mt-4 text-muted-foreground max-w-xl">
-          Search by ingredient or name. Filter by cuisine or course. Click a
-          card to start cooking.
-        </p>
+        <div className="relative overflow-hidden rounded-tr-3xl bg-card/40 px-6 py-10">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage: `url(${kitchenBanner})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: 0.6,
+              filter: 'saturate(0.9) contrast(1.05)',
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, var(--background) 0%, rgba(0,0,0,0) 55%), linear-gradient(to top, var(--background) 0%, rgba(0,0,0,0) 70%), radial-gradient(140px 140px at 0% 0%, var(--background) 0%, rgba(0,0,0,0) 70%), radial-gradient(140px 140px at 0% 100%, var(--background) 0%, rgba(0,0,0,0) 70%)',
+            }}
+          />
+          <div className="relative">
+            <p className="text-primary uppercase tracking-[0.25em] text-xs mb-3">
+              The collection
+            </p>
+            <h1 className="font-display text-5xl md:text-6xl">All recipes</h1>
+            <p className="mt-4 text-muted-foreground max-w-xl">
+              Search by ingredient or name. Filter by cuisine or course. Click a
+              card to start cooking.
+            </p>
+          </div>
+        </div>
       </header>
 
       <div className="grid gap-10 lg:grid-cols-[280px_1fr] xl:grid-cols-[300px_1fr] lg:items-start">
