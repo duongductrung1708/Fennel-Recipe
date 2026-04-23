@@ -1,8 +1,8 @@
 import { useId } from 'react'
 import { Search, X } from 'lucide-react'
 
-import { highlight } from '@/lib/highlight'
-import { cn } from '@/lib/utils'
+import { highlight } from '#/lib/highlight'
+import { cn } from '#/lib/utils'
 
 type Suggestion = {
   type: 'ingredient' | 'recipe'

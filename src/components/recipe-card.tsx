@@ -1,9 +1,9 @@
 import { Link } from '@tanstack/react-router'
 import * as React from 'react'
-import type { Recipe } from '@/data/recipes'
+import type { Recipe } from '#/data/recipes'
 import { Clock, Users } from 'lucide-react'
-import { highlight } from '@/lib/highlight'
-import { cn } from '@/lib/utils'
+import { highlight } from '#/lib/highlight'
+import { cn } from '#/lib/utils'
 
 export function RecipeCard({
   recipe,

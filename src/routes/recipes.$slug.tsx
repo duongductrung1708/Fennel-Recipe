@@ -1,12 +1,12 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
-import { getRecipe, type DietaryTag } from '@/data/recipes'
-import { ImageGallery } from '@/components/image-gallery'
+import { getRecipe, type DietaryTag } from '#/data/recipes'
+import { ImageGallery } from '#/components/image-gallery'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '#/components/ui/tooltip'
 import {
   ArrowLeft,
   Clock,

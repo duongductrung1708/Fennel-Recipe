@@ -1,15 +1,15 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { SlidersHorizontal, X } from 'lucide-react'
-import { RecipeCard } from '@/components/recipe-card'
-import { RecipeGridSkeleton } from '@/components/recipe-card-skeleton'
+import { RecipeCard } from '#/components/recipe-card'
+import { RecipeGridSkeleton } from '#/components/recipe-card-skeleton'
 import {
   categories,
   cuisines,
   dietaryTags,
   ingredientIndex,
   recipes,
-} from '@/data/recipes'
+} from '#/data/recipes'
 import {
   Sheet,
   SheetContent,
@@ -17,9 +17,9 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet'
-import { RecipesEmptyState } from '@/components/recipes/recipes-empty-state'
-import { RecipesFilters } from '@/components/recipes/recipes-filters'
+} from '#/components/ui/sheet'
+import { RecipesEmptyState } from '#/components/recipes/recipes-empty-state'
+import { RecipesFilters } from '#/components/recipes/recipes-filters'
 import {
   Pagination,
   PaginationContent,
@@ -28,7 +28,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination'
+} from '#/components/ui/pagination'
 
 const PAGE_SIZE = 9
 
@@ -411,8 +411,8 @@ function RecipesPage() {
                             : undefined
                         }
                         onClick={(e) => {
-                          e.preventDefault();
-                          if (currentPage > 1) setPage(currentPage - 1);
+                          e.preventDefault()
+                          if (currentPage > 1) setPage(currentPage - 1)
                         }}
                       />
                     </PaginationItem>
@@ -446,8 +446,8 @@ function RecipesPage() {
                             : undefined
                         }
                         onClick={(e) => {
-                          e.preventDefault();
-                          if (currentPage < totalPages) setPage(currentPage + 1);
+                          e.preventDefault()
+                          if (currentPage < totalPages) setPage(currentPage + 1)
                         }}
                       />
                     </PaginationItem>

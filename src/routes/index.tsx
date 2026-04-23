@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import heroImage from '@/assets/hero-kitchen.jpg'
-import { recipes } from '@/data/recipes'
-import { RecipeCard } from '@/components/recipe-card'
+import heroImage from '#/assets/hero-kitchen.jpg'
+import { recipes } from '#/data/recipes'
+import { RecipeCard } from '#/components/recipe-card'
 import { ArrowRight } from 'lucide-react'
 
 export const Route = createFileRoute('/')({

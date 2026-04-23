@@ -8,8 +8,9 @@ import {
 
 import appCss from '../styles.css?url'
 import faviconPng from '../assets/logo-fennels.png?url'
-import { SiteHeader } from '@/components/site-header'
-import { SiteFooter } from '@/components/site-footer'
+import { SiteHeader } from '#/components/site-header'
+import { SiteFooter } from '#/components/site-footer'
+import { ScrollToTop } from '#/components/ScrollToTop'
 
 function NotFoundComponent() {
   return (
@@ -97,6 +98,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <SiteFooter />
+      <ScrollToTop />
     </div>
   )
 }
