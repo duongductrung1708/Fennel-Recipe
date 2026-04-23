@@ -268,7 +268,7 @@ function RecipesPage() {
       </header>
 
       <div className="grid gap-10 lg:grid-cols-[280px_1fr] xl:grid-cols-[300px_1fr] lg:items-start">
-        <aside className="hidden lg:block lg:sticky lg:top-6">
+        <aside className="hidden lg:block lg:sticky lg:top-24">
           <RecipesFilters
             labelId={desktopLabelId}
             listboxId={desktopListboxId}
