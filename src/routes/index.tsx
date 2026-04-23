@@ -29,7 +29,6 @@ function Index() {
 
   return (
     <>
-      {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -71,7 +70,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Featured */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="flex items-end justify-between mb-10">
           <div>
@@ -96,7 +94,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Editorial pull quote */}
       <section className="border-y border-border bg-secondary/40">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <p className="font-display italic text-3xl md:text-4xl leading-snug text-foreground">

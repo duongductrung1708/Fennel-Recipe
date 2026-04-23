@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
-import { getRecipe, type DietaryTag } from '#/data/recipes'
+import { getRecipe } from '#/data/recipes'
+import type { DietaryTag } from '#/data/recipes'
 import { ImageGallery } from '#/components/image-gallery'
 import {
   Tooltip,
@@ -153,7 +154,7 @@ export const Route = createFileRoute('/recipes/$slug')({
 
 function RecipePage() {
   const { recipe } = Route.useLoaderData()
-  const images = recipe.gallery?.length ? recipe.gallery : [recipe.image]
+  const images = recipe.gallery.length ? recipe.gallery : [recipe.image]
 
   return (
     <article>
@@ -240,12 +241,10 @@ function RecipePage() {
         </div>
       </div>
 
-      {/* Gallery ảnh responsive */}
       <div className="mx-auto max-w-6xl px-6 pt-8">
         <ImageGallery images={images} alt={recipe.title} />
       </div>
 
-      {/* Meta strip */}
       <div className="border-y border-border bg-card mt-10">
         <div className="mx-auto max-w-6xl px-6 py-5 flex flex-wrap gap-x-10 gap-y-3 text-sm">
           <Stat
@@ -267,7 +266,6 @@ function RecipePage() {
         </div>
       </div>
 
-      {/* Body */}
       <div className="mx-auto max-w-6xl px-6 py-16 grid gap-12 lg:grid-cols-[1fr_2fr]">
         <aside>
           <div className="lg:sticky lg:top-24">

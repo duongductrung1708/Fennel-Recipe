@@ -371,7 +371,6 @@ function RecipesPage() {
             )}
           </div>
 
-          {/* Polite live region announces result counts as the user types/filters */}
           <p
             id={statusId}
             role="status"
