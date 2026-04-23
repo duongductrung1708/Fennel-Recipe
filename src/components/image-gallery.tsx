@@ -1,47 +1,47 @@
-import * as React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import * as React from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export function ImageGallery({
   images,
   alt,
   className,
 }: {
-  images: string[];
-  alt: string;
-  className?: string;
+  images: string[]
+  alt: string
+  className?: string
 }) {
-  const [active, setActive] = React.useState(0);
-  const safeImages = images.length > 0 ? images : [];
-  const total = safeImages.length;
+  const [active, setActive] = React.useState(0)
+  const safeImages = images.length > 0 ? images : []
+  const total = safeImages.length
 
-  if (total === 0) return null;
+  if (total === 0) return null
 
-  const go = (delta: number) => setActive((i) => (i + delta + total) % total);
+  const go = (delta: number) => setActive((i) => (i + delta + total) % total)
 
   const onKey = (e: React.KeyboardEvent) => {
-    if (total <= 1) return;
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      go(1);
-    } else if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      go(-1);
-    } else if (e.key === "Home") {
-      e.preventDefault();
-      setActive(0);
-    } else if (e.key === "End") {
-      e.preventDefault();
-      setActive(total - 1);
+    if (total <= 1) return
+    if (e.key === 'ArrowRight') {
+      e.preventDefault()
+      go(1)
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault()
+      go(-1)
+    } else if (e.key === 'Home') {
+      e.preventDefault()
+      setActive(0)
+    } else if (e.key === 'End') {
+      e.preventDefault()
+      setActive(total - 1)
     }
-  };
+  }
 
   return (
     <section
-      className={cn("flex flex-col gap-3", className)}
+      className={cn('flex flex-col gap-3', className)}
       onKeyDown={onKey}
       aria-roledescription="carousel"
-      aria-label={`${alt} image gallery, ${total} ${total === 1 ? "image" : "images"}`}
+      aria-label={`${alt} image gallery, ${total} ${total === 1 ? 'image' : 'images'}`}
     >
       <div
         className="relative overflow-hidden rounded-2xl bg-muted aspect-4/3 sm:aspect-16/10 shadow-card"
@@ -50,22 +50,22 @@ export function ImageGallery({
         aria-label={`Image ${active + 1} of ${total}`}
       >
         {safeImages.map((src, i) => {
-          const isActive = i === active;
+          const isActive = i === active
           return (
             <img
               key={src}
               src={src}
-              alt={isActive ? `${alt} — image ${i + 1} of ${total}` : ""}
+              alt={isActive ? `${alt} — image ${i + 1} of ${total}` : ''}
               width={1920}
               height={1280}
-              loading={i === 0 ? "eager" : "lazy"}
+              loading={i === 0 ? 'eager' : 'lazy'}
               className={cn(
-                "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
-                isActive ? "opacity-100" : "opacity-0",
+                'absolute inset-0 h-full w-full object-cover transition-opacity duration-500',
+                isActive ? 'opacity-100' : 'opacity-0',
               )}
               aria-hidden={!isActive}
             />
-          );
+          )
         })}
 
         {total > 1 && (
@@ -103,7 +103,7 @@ export function ImageGallery({
           aria-label="Choose an image"
         >
           {safeImages.map((src, i) => {
-            const isActive = i === active;
+            const isActive = i === active
             return (
               <button
                 key={src}
@@ -113,12 +113,12 @@ export function ImageGallery({
                 aria-pressed={isActive}
                 aria-controls={`gallery-slide-${i}`}
                 className={cn(
-                  "relative shrink-0 snap-start overflow-hidden rounded-lg transition-smooth",
-                  "h-16 w-24 sm:h-20 sm:w-28 md:h-24 md:w-32",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  'relative shrink-0 snap-start overflow-hidden rounded-lg transition-smooth',
+                  'h-16 w-24 sm:h-20 sm:w-28 md:h-24 md:w-32',
+                  'focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
                   isActive
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-background"
-                    : "opacity-70 hover:opacity-100",
+                    ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
+                    : 'opacity-70 hover:opacity-100',
                 )}
               >
                 <img
@@ -131,14 +131,14 @@ export function ImageGallery({
                   aria-hidden="true"
                 />
               </button>
-            );
+            )
           })}
         </div>
       )}
 
       <div className="sr-only" aria-live="polite" aria-atomic="true">
-        {total > 1 ? `Showing image ${active + 1} of ${total}` : ""}
+        {total > 1 ? `Showing image ${active + 1} of ${total}` : ''}
       </div>
     </section>
-  );
+  )
 }

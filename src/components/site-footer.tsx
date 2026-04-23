@@ -8,5 +8,5 @@ export function SiteFooter() {
         <p>Cooked with care · {new Date().getFullYear()}</p>
       </div>
     </footer>
-  );
+  )
 }

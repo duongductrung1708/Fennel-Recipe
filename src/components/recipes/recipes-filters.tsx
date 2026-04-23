@@ -1,15 +1,15 @@
-import { useId } from "react";
-import { Search, X } from "lucide-react";
+import { useId } from 'react'
+import { Search, X } from 'lucide-react'
 
-import { highlight } from "@/lib/highlight";
-import { cn } from "@/lib/utils";
+import { highlight } from '@/lib/highlight'
+import { cn } from '@/lib/utils'
 
 type Suggestion = {
-  type: "ingredient" | "recipe";
-  value: string;
-  label: string;
-  slug?: string;
-};
+  type: 'ingredient' | 'recipe'
+  value: string
+  label: string
+  slug?: string
+}
 
 function FilterGroup({
   label,
@@ -17,20 +17,23 @@ function FilterGroup({
   value,
   onChange,
 }: {
-  label: string;
-  options: string[];
-  value: string;
-  onChange: (v: string) => void;
+  label: string
+  options: string[]
+  value: string
+  onChange: (v: string) => void
 }) {
-  const groupId = useId();
+  const groupId = useId()
   return (
     <div role="group" aria-labelledby={groupId}>
-      <p id={groupId} className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+      <p
+        id={groupId}
+        className="text-xs uppercase tracking-wider text-muted-foreground mb-2"
+      >
         {label}
       </p>
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => {
-          const active = opt === value;
+          const active = opt === value
           return (
             <button
               key={opt}
@@ -39,19 +42,19 @@ function FilterGroup({
               aria-pressed={active}
               aria-label={`${label}: ${opt}`}
               className={cn(
-                "rounded-full px-3.5 py-1.5 text-xs font-medium transition-smooth border focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card",
+                'rounded-full px-3.5 py-1.5 text-xs font-medium transition-smooth border focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card',
                 active
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-background text-foreground/80 border-border hover:border-primary/40 hover:text-foreground",
+                  ? 'bg-primary text-primary-foreground border-primary'
+                  : 'bg-background text-foreground/80 border-border hover:border-primary/40 hover:text-foreground',
               )}
             >
               {opt}
             </button>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }
 
 export function RecipesFilters({
@@ -82,32 +85,32 @@ export function RecipesFilters({
   dietaryTags,
   toggleDiet,
 }: {
-  labelId: string;
-  listboxId: string;
-  searchInputId: string;
-  dietLabelId: string;
-  wrapRef: React.RefObject<HTMLDivElement | null>;
-  inputRef: React.RefObject<HTMLInputElement | null>;
-  query: string;
-  setQuery: (v: string) => void;
-  onFocusSearch: () => void;
-  suggestions: Suggestion[];
-  isOpen: boolean;
-  activeSuggestion: number;
-  setActiveSuggestion: (v: number) => void;
-  applySuggestion: (s: Suggestion) => void;
-  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  cuisine: string;
-  setCuisine: (v: string) => void;
-  cuisines: string[];
-  category: string;
-  setCategory: (v: string) => void;
-  categories: string[];
-  hasFilters: boolean;
-  clearAll: () => void;
-  diets: string[];
-  dietaryTags: string[];
-  toggleDiet: (tag: string) => void;
+  labelId: string
+  listboxId: string
+  searchInputId: string
+  dietLabelId: string
+  wrapRef: React.RefObject<HTMLDivElement | null>
+  inputRef: React.RefObject<HTMLInputElement | null>
+  query: string
+  setQuery: (v: string) => void
+  onFocusSearch: () => void
+  suggestions: Suggestion[]
+  isOpen: boolean
+  activeSuggestion: number
+  setActiveSuggestion: (v: number) => void
+  applySuggestion: (s: Suggestion) => void
+  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  cuisine: string
+  setCuisine: (v: string) => void
+  cuisines: string[]
+  category: string
+  setCategory: (v: string) => void
+  categories: string[]
+  hasFilters: boolean
+  clearAll: () => void
+  diets: string[]
+  dietaryTags: string[]
+  toggleDiet: (tag: string) => void
 }) {
   return (
     <div className="rounded-2xl bg-card p-5 shadow-soft">
@@ -125,7 +128,7 @@ export function RecipesFilters({
           type="text"
           value={query}
           onChange={(e) => {
-            setQuery(e.target.value);
+            setQuery(e.target.value)
           }}
           onFocus={onFocusSearch}
           onKeyDown={onKeyDown}
@@ -138,7 +141,9 @@ export function RecipesFilters({
           aria-controls={listboxId}
           aria-autocomplete="list"
           aria-activedescendant={
-            isOpen && activeSuggestion >= 0 ? `${listboxId}-opt-${activeSuggestion}` : undefined
+            isOpen && activeSuggestion >= 0
+              ? `${listboxId}-opt-${activeSuggestion}`
+              : undefined
           }
           className="w-full rounded-lg border border-border bg-background pl-11 pr-10 py-3 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card transition-smooth"
         />
@@ -146,8 +151,8 @@ export function RecipesFilters({
           <button
             type="button"
             onClick={() => {
-              setQuery("");
-              inputRef.current?.focus();
+              setQuery('')
+              inputRef.current?.focus()
             }}
             aria-label="Clear search"
             className="absolute right-2 top-1/2 -translate-y-1/2 grid place-items-center h-7 w-7 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-smooth focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -164,11 +169,11 @@ export function RecipesFilters({
             className="absolute z-30 left-0 right-0 mt-2 rounded-xl border border-border bg-popover shadow-elevated overflow-hidden"
           >
             {suggestions.map((s, i) => {
-              const isActive = i === activeSuggestion;
+              const isActive = i === activeSuggestion
               const a11yLabel =
-                s.type === "recipe"
+                s.type === 'recipe'
                   ? `Open recipe: ${s.label}`
-                  : `Filter by ingredient: ${s.label}`;
+                  : `Filter by ingredient: ${s.label}`
               return (
                 <li
                   key={`${s.type}-${s.value}`}
@@ -178,12 +183,12 @@ export function RecipesFilters({
                   aria-label={a11yLabel}
                   onMouseEnter={() => setActiveSuggestion(i)}
                   onMouseDown={(e) => {
-                    e.preventDefault();
-                    applySuggestion(s);
+                    e.preventDefault()
+                    applySuggestion(s)
                   }}
                   className={cn(
-                    "flex items-center justify-between gap-3 px-4 py-2.5 cursor-pointer text-sm transition-smooth",
-                    isActive ? "bg-accent/40" : "hover:bg-accent/20",
+                    'flex items-center justify-between gap-3 px-4 py-2.5 cursor-pointer text-sm transition-smooth',
+                    isActive ? 'bg-accent/40' : 'hover:bg-accent/20',
                   )}
                 >
                   <span className="flex items-center gap-2.5 min-w-0">
@@ -198,16 +203,16 @@ export function RecipesFilters({
                   <span
                     aria-hidden="true"
                     className={cn(
-                      "text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full shrink-0",
-                      s.type === "recipe"
-                        ? "bg-primary/10 text-primary"
-                        : "bg-muted text-muted-foreground",
+                      'text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full shrink-0',
+                      s.type === 'recipe'
+                        ? 'bg-primary/10 text-primary'
+                        : 'bg-muted text-muted-foreground',
                     )}
                   >
                     {s.type}
                   </span>
                 </li>
-              );
+              )
             })}
           </ul>
         )}
@@ -216,13 +221,13 @@ export function RecipesFilters({
       <div className="mt-5 flex flex-wrap gap-6">
         <FilterGroup
           label="Cuisine"
-          options={["All", ...cuisines]}
+          options={['All', ...cuisines]}
           value={cuisine}
           onChange={setCuisine}
         />
         <FilterGroup
           label="Course"
-          options={["All", ...categories]}
+          options={['All', ...categories]}
           value={category}
           onChange={setCategory}
         />
@@ -238,13 +243,20 @@ export function RecipesFilters({
       </div>
 
       <div className="mt-5">
-        <p id={dietLabelId} className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+        <p
+          id={dietLabelId}
+          className="text-xs uppercase tracking-wider text-muted-foreground mb-2"
+        >
           Dietary & allergens
         </p>
-        <div role="group" aria-labelledby={dietLabelId} className="flex flex-wrap gap-2">
+        <div
+          role="group"
+          aria-labelledby={dietLabelId}
+          className="flex flex-wrap gap-2"
+        >
           {dietaryTags.map((tag) => {
-            const active = diets.includes(tag);
-            const isWarning = tag.startsWith("Contains");
+            const active = diets.includes(tag)
+            const isWarning = tag.startsWith('Contains')
             return (
               <button
                 key={tag}
@@ -253,24 +265,24 @@ export function RecipesFilters({
                 aria-pressed={active}
                 aria-label={
                   isWarning
-                    ? `Show only recipes that contain ${tag.replace("Contains ", "").toLowerCase()}`
+                    ? `Show only recipes that contain ${tag.replace('Contains ', '').toLowerCase()}`
                     : `Show only ${tag} recipes`
                 }
                 className={cn(
-                  "rounded-full px-3 py-1.5 text-xs font-medium border transition-smooth focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  'rounded-full px-3 py-1.5 text-xs font-medium border transition-smooth focus:outline-none focus-visible:ring-2 focus-visible:ring-ring',
                   active
                     ? isWarning
-                      ? "bg-destructive/15 text-destructive border-destructive/40"
-                      : "bg-primary text-primary-foreground border-primary"
-                    : "bg-background text-foreground/80 border-border hover:border-primary/40 hover:text-foreground",
+                      ? 'bg-destructive/15 text-destructive border-destructive/40'
+                      : 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-background text-foreground/80 border-border hover:border-primary/40 hover:text-foreground',
                 )}
               >
                 {tag}
               </button>
-            );
+            )
           })}
         </div>
       </div>
     </div>
-  );
+  )
 }

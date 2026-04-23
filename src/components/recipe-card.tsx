@@ -1,13 +1,19 @@
-import { Link } from "@tanstack/react-router";
-import * as React from "react";
-import type { Recipe } from "@/data/recipes";
-import { Clock, Users } from "lucide-react";
-import { highlight } from "@/lib/highlight";
-import { cn } from "@/lib/utils";
+import { Link } from '@tanstack/react-router'
+import * as React from 'react'
+import type { Recipe } from '@/data/recipes'
+import { Clock, Users } from 'lucide-react'
+import { highlight } from '@/lib/highlight'
+import { cn } from '@/lib/utils'
 
-export function RecipeCard({ recipe, query = "" }: { recipe: Recipe; query?: string }) {
-  const [activeImage, setActiveImage] = React.useState(0);
-  const images = recipe.gallery.length ? recipe.gallery : [recipe.image];
+export function RecipeCard({
+  recipe,
+  query = '',
+}: {
+  recipe: Recipe
+  query?: string
+}) {
+  const [activeImage, setActiveImage] = React.useState(0)
+  const images = recipe.gallery.length ? recipe.gallery : [recipe.image]
 
   return (
     <Link
@@ -21,13 +27,13 @@ export function RecipeCard({ recipe, query = "" }: { recipe: Recipe; query?: str
           <img
             key={src}
             src={src}
-            alt={i === activeImage ? recipe.title : ""}
+            alt={i === activeImage ? recipe.title : ''}
             loading="lazy"
             width={1024}
             height={1024}
             className={cn(
-              "absolute inset-0 h-full w-full object-cover transition-all duration-500 group-hover:scale-105",
-              i === activeImage ? "opacity-100" : "opacity-0",
+              'absolute inset-0 h-full w-full object-cover transition-all duration-500 group-hover:scale-105',
+              i === activeImage ? 'opacity-100' : 'opacity-0',
             )}
             aria-hidden={i !== activeImage}
           />
@@ -46,8 +52,10 @@ export function RecipeCard({ recipe, query = "" }: { recipe: Recipe; query?: str
                 key={i}
                 onMouseEnter={() => setActiveImage(i)}
                 className={cn(
-                  "block h-1.5 rounded-full transition-all pointer-events-auto",
-                  i === activeImage ? "w-5 bg-primary" : "w-1.5 bg-foreground/30",
+                  'block h-1.5 rounded-full transition-all pointer-events-auto',
+                  i === activeImage
+                    ? 'w-5 bg-primary'
+                    : 'w-1.5 bg-foreground/30',
                 )}
               />
             ))}
@@ -73,9 +81,11 @@ export function RecipeCard({ recipe, query = "" }: { recipe: Recipe; query?: str
             <Users className="h-3.5 w-3.5" />
             {recipe.servings} servings
           </span>
-          <span className="ml-auto min-w-0 truncate text-foreground/70">{recipe.difficulty}</span>
+          <span className="ml-auto min-w-0 truncate text-foreground/70">
+            {recipe.difficulty}
+          </span>
         </div>
       </div>
     </Link>
-  );
+  )
 }

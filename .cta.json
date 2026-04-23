@@ -11,8 +11,6 @@
   "install": true,
   "routerOnly": false,
   "version": 1,
-  "framework": "react",
-  "chosenAddOns": [
-    "eslint"
-  ]
+  "framework": "start",
+  "chosenAddOns": ["eslint"]
 }

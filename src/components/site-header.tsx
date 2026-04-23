@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
-import { Menu } from "lucide-react";
+import { Link } from '@tanstack/react-router'
+import { Menu } from 'lucide-react'
 import {
   Sheet,
   SheetClose,
@@ -8,7 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from '@/components/ui/sheet'
 
 export function SiteHeader() {
   return (
@@ -26,21 +26,21 @@ export function SiteHeader() {
           <Link
             to="/"
             activeOptions={{ exact: true }}
-            activeProps={{ className: "text-foreground" }}
+            activeProps={{ className: 'text-foreground' }}
             className="text-muted-foreground hover:text-foreground transition-smooth"
           >
             Home
           </Link>
           <Link
             to="/recipes"
-            activeProps={{ className: "text-foreground" }}
+            activeProps={{ className: 'text-foreground' }}
             className="text-muted-foreground hover:text-foreground transition-smooth"
           >
             Recipes
           </Link>
           <Link
             to="/about"
-            activeProps={{ className: "text-foreground" }}
+            activeProps={{ className: 'text-foreground' }}
             className="text-muted-foreground hover:text-foreground transition-smooth"
           >
             About
@@ -70,7 +70,7 @@ export function SiteHeader() {
                   <Link
                     to="/"
                     activeOptions={{ exact: true }}
-                    activeProps={{ className: "text-foreground bg-accent/40" }}
+                    activeProps={{ className: 'text-foreground bg-accent/40' }}
                     className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/20 transition-smooth"
                   >
                     Home
@@ -79,7 +79,7 @@ export function SiteHeader() {
                 <SheetClose asChild>
                   <Link
                     to="/recipes"
-                    activeProps={{ className: "text-foreground bg-accent/40" }}
+                    activeProps={{ className: 'text-foreground bg-accent/40' }}
                     className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/20 transition-smooth"
                   >
                     Recipes
@@ -88,7 +88,7 @@ export function SiteHeader() {
                 <SheetClose asChild>
                   <Link
                     to="/about"
-                    activeProps={{ className: "text-foreground bg-accent/40" }}
+                    activeProps={{ className: 'text-foreground bg-accent/40' }}
                     className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/20 transition-smooth"
                   >
                     About
@@ -100,5 +100,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  );
+  )
 }

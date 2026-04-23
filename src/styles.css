@@ -1,6 +1,6 @@
-@import "tailwindcss" source(none);
+@import 'tailwindcss' source(none);
 @source "../src";
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -32,8 +32,8 @@
   --color-spice-foreground: var(--spice-foreground);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 }
 
 :root {
@@ -85,8 +85,16 @@
   --sidebar-border: oklch(0.88 0.02 70);
   --sidebar-ring: oklch(0.55 0.16 35);
 
-  --gradient-warm: linear-gradient(135deg, oklch(0.55 0.16 35) 0%, oklch(0.65 0.18 50) 100%);
-  --gradient-fade: linear-gradient(180deg, transparent 0%, oklch(0.18 0.02 50 / 0.85) 100%);
+  --gradient-warm: linear-gradient(
+    135deg,
+    oklch(0.55 0.16 35) 0%,
+    oklch(0.65 0.18 50) 100%
+  );
+  --gradient-fade: linear-gradient(
+    180deg,
+    transparent 0%,
+    oklch(0.18 0.02 50 / 0.85) 100%
+  );
   --shadow-soft: 0 4px 20px -4px oklch(0.18 0.02 50 / 0.08);
   --shadow-card: 0 10px 30px -10px oklch(0.18 0.02 50 / 0.15);
   --shadow-elevated: 0 20px 50px -15px oklch(0.18 0.02 50 / 0.25);
@@ -105,12 +113,13 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-feature-settings: "ss01", "cv11";
+    font-feature-settings: 'ss01', 'cv11';
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: color-mix(in oklab, var(--foreground) 28%, transparent) transparent;
+    scrollbar-color: color-mix(in oklab, var(--foreground) 28%, transparent)
+      transparent;
   }
 
   *::-webkit-scrollbar {
@@ -179,10 +188,12 @@
 
   .skeleton-shimmer {
     background-color: var(--muted);
-    background-image: linear-gradient(90deg,
-        transparent 0%,
-        color-mix(in oklab, var(--foreground) 6%, transparent) 50%,
-        transparent 100%);
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in oklab, var(--foreground) 6%, transparent) 50%,
+      transparent 100%
+    );
     background-size: 200% 100%;
     background-repeat: no-repeat;
     animation: skeleton-shimmer 1.6s ease-in-out infinite;

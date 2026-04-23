@@ -1,16 +1,16 @@
-import { Link } from "@tanstack/react-router";
-import { SearchX, Sparkles, X } from "lucide-react";
+import { Link } from '@tanstack/react-router'
+import { SearchX, Sparkles, X } from 'lucide-react'
 
-const POPULAR_INGREDIENTS = ["tomato", "garlic", "basil", "cheese", "chocolate"];
+const POPULAR_INGREDIENTS = ['tomato', 'garlic', 'basil', 'cheese', 'chocolate']
 
 export function RecipesEmptyState({
   query,
   onClear,
   onPickIngredient,
 }: {
-  query: string;
-  onClear: () => void;
-  onPickIngredient: (ingredient: string) => void;
+  query: string
+  onClear: () => void
+  onPickIngredient: (ingredient: string) => void
 }) {
   return (
     <div
@@ -23,7 +23,7 @@ export function RecipesEmptyState({
         className="pointer-events-none absolute inset-x-0 -top-24 h-48 opacity-40 blur-3xl"
         style={{
           background:
-            "radial-gradient(closest-side, color-mix(in oklab, var(--primary) 35%, transparent), transparent)",
+            'radial-gradient(closest-side, color-mix(in oklab, var(--primary) 35%, transparent), transparent)',
         }}
       />
 
@@ -32,11 +32,11 @@ export function RecipesEmptyState({
           <SearchX className="h-6 w-6" aria-hidden="true" />
         </div>
         <h2 id="empty-title" className="font-display text-3xl mb-2">
-          No recipes match{query ? ` "${query}"` : " those filters"}
+          No recipes match{query ? ` "${query}"` : ' those filters'}
         </h2>
         <p className="text-muted-foreground text-sm mb-6">
-          Try a different search term, remove a filter, or explore one of these popular ingredients
-          instead.
+          Try a different search term, remove a filter, or explore one of these
+          popular ingredients instead.
         </p>
 
         <div className="mb-7 flex flex-wrap justify-center gap-2">
@@ -71,5 +71,5 @@ export function RecipesEmptyState({
         </div>
       </div>
     </div>
-  );
+  )
 }
