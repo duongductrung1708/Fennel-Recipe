@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import heroImage from '#/assets/hero-kitchen.jpg'
+import heroImage from '#/assets/kitchen-banner.jpg'
 import { recipes } from '#/data/recipes'
 import { RecipeCard } from '#/components/recipe-card'
 import { ArrowRight } from 'lucide-react'
